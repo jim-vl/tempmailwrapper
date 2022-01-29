@@ -17,5 +17,5 @@ WIP
 
 
 [tempmail-website]: <https://temp-mail.org/>
-[tempmail-api]: <temp-mail.org/en/api/>
-[rapidapi]: <rapidapi.com/Privatix/api/temp-mail>
+[tempmail-api]: <https://temp-mail.org/en/api/>
+[rapidapi]: <https://rapidapi.com/Privatix/api/temp-mail>
