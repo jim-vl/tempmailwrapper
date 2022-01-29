@@ -18,6 +18,7 @@ setup(
     packages=find_packages(),
     install_requires=['requests',],
     keywords=['python', 'tempmail', 'temporary', 'email', 'wrapper',],
+    download_url = 'https://github.com/Jimballoons/tempmailwrapper/archive/refs/tags/0.0.1.tar.gz',
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
