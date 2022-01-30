@@ -34,12 +34,12 @@ class TempMail():
         """
         Return list of available domains for use in email address.
         """
-        if not hasattr(self, 'domains_list'):
+        if not hasattr(self, '_domains_list'):
             url = f'https://{self.api_endpoint}/request/domains/'
             response = requests.get(url, headers=self.headers)
             domains = response.json()
-            setattr(self, 'domains_list', domains)
-        return self.domains_list
+            setattr(self, '_domains_list', domains)
+        return self._domains_list
 
     def get_emails(self, email):
         """
