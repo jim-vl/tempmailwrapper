@@ -9,7 +9,7 @@ LONG_DESCRIPTION = read('README.md')
 
 setup(
     name="tempmailwrapper",
-    version="0.0.5",
+    version="0.0.6",
     author="Jimballoons",
     author_email="jimballoonsgit@gmail.com",
     url='https://github.com/Jimballoons/tempmailwrapper',
@@ -19,7 +19,7 @@ setup(
     packages=find_packages(),
     install_requires=['requests',],
     keywords=['python', 'tempmail', 'temporary', 'email', 'wrapper',],
-    download_url = 'https://github.com/Jimballoons/tempmailwrapper/archive/refs/tags/0.0.5.tar.gz',
+    download_url = 'https://github.com/Jimballoons/tempmailwrapper/archive/refs/tags/0.0.6.tar.gz',
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
