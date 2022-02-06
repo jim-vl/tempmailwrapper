@@ -45,7 +45,7 @@ Get specific email:
     $ from tempmailwrapper import tempmailwrapper
     $ tm = tempmailwrapper.TempMail(api_key="YOUR_API_KEY_HERE")
     $ email_address = tm.get_email_address()
-    $ print(random_email_address) # Now send an email here.
+    $ print(email_address) # Now send an email here.
     $ emails_list = tm.get_emails(email_address)
     $ first_email_id = emails[0]['mail_id']
     $ email = tm.get_one_message(first_email_id)
