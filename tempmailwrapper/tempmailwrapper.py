@@ -1,19 +1,20 @@
 """
 API Wrapper for Temp Mail API.
 """
-import string
+
 import random
+import string
 from hashlib import md5
 
 import requests
 
 
-class TempMail():
+class TempMail:
     """
     API Wrapper for Temp Mail API.
     """
 
-    def __init__(self, api_key, api_endpoint='privatix-temp-mail-v1.p.rapidapi.com'):
+    def __init__(self, api_key, api_endpoint="privatix-temp-mail-v1.p.rapidapi.com"):
         """
         API Wrapper for Temp Mail API.
 
@@ -24,21 +25,18 @@ class TempMail():
 
         self.api_endpoint = api_endpoint
         self.api_key = api_key
-        self.headers = {
-            'x-rapidapi-host': api_endpoint,
-            'x-rapidapi-key': api_key
-        }
+        self.headers = {"x-rapidapi-host": api_endpoint, "x-rapidapi-key": api_key}
 
     @property
     def domains_list(self):
         """
         Return list of available domains for use in email address.
         """
-        if not hasattr(self, '_domains_list'):
-            url = f'https://{self.api_endpoint}/request/domains/'
+        if not hasattr(self, "_domains_list"):
+            url = f"https://{self.api_endpoint}/request/domains/"
             response = requests.get(url, headers=self.headers)
             domains = response.json()
-            setattr(self, '_domains_list', domains)
+            setattr(self, "_domains_list", domains)
         return self._domains_list
 
     def get_emails(self, email):
@@ -49,7 +47,7 @@ class TempMail():
         """
 
         email_md5 = self._get_md5_hash(email)
-        url = f'https://{self.api_endpoint}/request/mail/id/{email_md5}/'
+        url = f"https://{self.api_endpoint}/request/mail/id/{email_md5}/"
         response = requests.get(url, headers=self.headers)
         return response.json()
 
@@ -60,7 +58,7 @@ class TempMail():
         :param mail_id: unique message identifier.
         """
 
-        url = f'https://{self.api_endpoint}/request/delete/id/{mail_id}/'
+        url = f"https://{self.api_endpoint}/request/delete/id/{mail_id}/"
         response = requests.get(url, headers=self.headers)
         return response.json()
 
@@ -71,7 +69,7 @@ class TempMail():
         :param mail_id: unique message identifier.
         """
 
-        url = f'https://{self.api_endpoint}/request/atchmnts/id/{mail_id}/'
+        url = f"https://{self.api_endpoint}/request/atchmnts/id/{mail_id}/"
         response = requests.get(url, headers=self.headers)
         return response.json()
 
@@ -82,7 +80,7 @@ class TempMail():
 
         :param mail_id: unique message identifier.
         """
-        url = f'https://{self.api_endpoint}/request/one_attachment/id/{mail_id}/{attachment_id}'
+        url = f"https://{self.api_endpoint}/request/one_attachment/id/{mail_id}/{attachment_id}"
         response = requests.get(url, headers=self.headers)
         return response.json()
 
@@ -93,7 +91,7 @@ class TempMail():
         :param mail_id: unique message identifier.
         """
 
-        url = f'https://{self.api_endpoint}/request/one_mail/id/{mail_id}/'
+        url = f"https://{self.api_endpoint}/request/one_mail/id/{mail_id}/"
         response = requests.get(url, headers=self.headers)
         return response.json()
 
@@ -104,7 +102,7 @@ class TempMail():
         :param mail_id: unique message identifier.
         """
 
-        url = f'https://{self.api_endpoint}/request/source/id/{mail_id}/'
+        url = f"https://{self.api_endpoint}/request/source/id/{mail_id}/"
         response = requests.get(url, headers=self.headers)
         return response.json()
 
@@ -123,8 +121,8 @@ class TempMail():
         if domain is None:
             domain = random.choice(domains_list)
         elif domain not in domains_list:
-            raise ValueError('Domain not found in domains list.')
-        return f'{username}{domain}'
+            raise ValueError("Domain not found in domains list.")
+        return f"{username}{domain}"
 
     @staticmethod
     def random_username(min_length=6, max_length=10, digits=True):
@@ -142,7 +140,7 @@ class TempMail():
         if digits:
             chars += string.digits
         length = random.randint(min_length, max_length)
-        return ''.join(random.choice(chars) for _ in range(length))
+        return "".join(random.choice(chars) for _ in range(length))
 
     @staticmethod
     def _get_md5_hash(text):
@@ -151,4 +149,4 @@ class TempMail():
 
         :param text: Any string.
         """
-        return md5(text.encode('utf-8')).hexdigest()
+        return md5(text.encode("utf-8")).hexdigest()

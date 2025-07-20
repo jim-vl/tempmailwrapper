@@ -1,0 +1,18 @@
+{
+    "git.inputValidation": true,
+    "git.autofetch": true,
+    "ruff.enable": true,
+    "ruff.organizeImports": true,
+    "ruff.fixAll": true,
+    "ruff.importStrategy": "fromEnvironment",
+    "ruff.lineLength": 100,
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always",
+            "source.fixAll": "always"
+        }
+    }
+}
