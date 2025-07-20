@@ -1,0 +1,2 @@
+[tool.commitizen]
+name = "cz_jira_ticket_prefix"
